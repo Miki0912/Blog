@@ -2,14 +2,20 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    {% extends 'myblogapp/base_generic.html' %}
+    <title>{% block title %} {{post.title_tag}} {% endblock %}</title>
 </head>
 <body>
+
+    {% block content %}
+
     <h1>{{ post.title }}</h1>
     <small>By: {{ post.author.first_name }} {{ post.author.last_name }}</small><br>
     {{ post.body }}
 
     <br><br>
-    <a href="{% url 'myblogapp:home' %}">Back</a>
+    <a href="{% url 'myblogapp:home' %}" class="btn btn-primary">Back</a>
+
+    {% endblock %}
 </body>
 </html>
